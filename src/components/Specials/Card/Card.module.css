@@ -1,0 +1,26 @@
+.card {
+    background-color: var(--secondary-3);
+    border-radius: 16px 16px 0 0;
+}
+
+.content {
+    padding: 16px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.price {
+    font-size: 16px;
+    font-weight: bold;
+    color: var(--secondary-1);
+}
+
+.deliveryButton {
+    background-color: transparent;
+    font-size: 16px;
+    font-weight: bold;
+    border-style: none;
+    text-align: left;
+}

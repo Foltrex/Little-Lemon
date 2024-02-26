@@ -1,0 +1,11 @@
+.button {
+    width: 200px;
+    height: 60px;
+    background-color: var(--primary-2);
+    border-style: none;
+    border-radius: 8px;
+
+    font-family: 'Karla', sans-serif;
+    font-weight: normal;
+    font-size: 18px;
+}

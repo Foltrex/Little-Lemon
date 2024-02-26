@@ -1,0 +1,28 @@
+.about h1, h2, p {
+    color: --var(--secondary-4);
+}
+
+.imageContainer {
+    flex-grow: 6;
+}
+
+.restaurantChef {
+    top: 233px;
+    /* margin-top: 233px; */
+    width: 272px;
+    height: 336px;
+    object-fit: cover;
+    object-position: center;
+}
+
+.restaurant {
+    top: 124px;
+    left: 164px;
+    /* margin: 124px auto auto 164px; */
+    width: 272px;
+    height: 338px;
+    object-fit: cover;
+    object-position: center;
+    /* margin-left: 164px;
+    margin-top: 124px; */
+}
