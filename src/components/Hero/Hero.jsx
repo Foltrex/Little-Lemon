@@ -16,7 +16,7 @@ const Hero = (props) => {
                 Little Lemon is a charming neighborhood bistro thatserves simple food and classic cocktails in a lively but casual environment. The restaurant features a locally-sourced menu with daily specials.
             </p>
 
-            <Button text='Reserve a Table' style={{ marginTop: '72px'}} />
+            <Button text='Reserve a Table' />
         </section>
     </>
   )

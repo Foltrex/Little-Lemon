@@ -7,10 +7,10 @@ import { Box, Flex } from '@chakra-ui/react';
 const About = () => {
     return (
         <section className={styles.about}>
-            <Flex>
-                <Box flexGrow={4}>
+            <Flex as='div' gap={48}>
+                <Box as='div' className={styles.content} flexGrow={4}>
                     <h1 className="title">Little Lemon</h1>
-                    <h2 className="sub-title">Chicago</h2>
+                    <h2 className="subtitle">Chicago</h2>
                     <p className="lead-text">
                         Little Lemon is a charming neighborhood
                         bistro thatserves simple food and classic

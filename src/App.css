@@ -8,14 +8,12 @@
     font-family: "Markazi Text";
     font-size: 40px;
     font-weight: normal;
-    color: var(--secondary-3);
 }
 
 .lead-text {
     font-family: "Karla";
     font-size: 18px;
     font-weight: normal;
-    color: var(--secondary-3);
 }
 
 .card-title {

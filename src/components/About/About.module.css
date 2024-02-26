@@ -1,5 +1,24 @@
-.about h1, h2, p {
-    color: --var(--secondary-4);
+.about {
+    margin: 114px auto 154px;
+}
+
+.about > div > div:first-child {
+    max-width: 373px;
+}
+
+.about h1, .about h2 {
+    color: var(--secondary-4);
+}
+
+.about h2 {
+    font-weight: 400;
+    margin-top: -19px;
+}
+
+.about p {
+    color: black;
+    margin-top: 40px;
+    text-align: justify;
 }
 
 .imageContainer {
@@ -7,8 +26,9 @@
 }
 
 .restaurantChef {
-    top: 233px;
-    /* margin-top: 233px; */
+    position: absolute;
+    top: 106px;
+    z-index: -100;
     width: 272px;
     height: 336px;
     object-fit: cover;
@@ -16,13 +36,10 @@
 }
 
 .restaurant {
-    top: 124px;
+    position: relative;
     left: 164px;
-    /* margin: 124px auto auto 164px; */
     width: 272px;
     height: 338px;
     object-fit: cover;
     object-position: center;
-    /* margin-left: 164px;
-    margin-top: 124px; */
 }
