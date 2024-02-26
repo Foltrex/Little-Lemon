@@ -39,3 +39,20 @@
     left: 50%;
     transform: translateX(-50%);
 }
+
+@media (max-width: 1130px) {
+    .hero img {
+        width: 300px;
+        height: 358px;
+    }
+}
+
+@media (max-width: 1025px) {
+    .hero img {
+        display: none;
+    }
+
+    .hero p {
+        width: 100%;
+    }
+}

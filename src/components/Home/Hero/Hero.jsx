@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './Hero.module.css';
-import Button from '../common/Button/Button';
-import restauranFood from '../../assets/images/restauranfood.jpg';
+import Button from '../../common/Button/Button';
+import restauranFood from '../../../assets/images/restauranfood.jpg';
 
 const Hero = (props) => {
   return (

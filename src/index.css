@@ -21,6 +21,17 @@ body {
   column-gap: 20px;
 }
 
-body div {
+body > div {
   grid-column: 3 / span 8;
+}
+
+@media (max-width: 900px) {
+  body {
+    grid-template-columns: repeat(8, 1fr);
+    margin: auto 20px;
+  }
+
+  body div {
+    grid-column: 1 / span 8;
+  }
 }

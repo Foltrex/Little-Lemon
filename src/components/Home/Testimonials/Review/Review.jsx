@@ -1,7 +1,7 @@
 import React from 'react';
 import Stars from './Stars/Stars';
 import styles from './Review.module.css';
-import { Image } from '@chakra-ui/react';
+import { GridItem, Image } from '@chakra-ui/react';
 
 const Review = ({ name, nickname, avatar, stars, text }) => {
     return (

@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './About.module.css';
-import restaurantChef from '../../assets/images/restaurant chef B.jpg';
-import restaurant from '../../assets/images/restaurant.jpg';
+import restaurantChef from '../../../assets/images/restaurant chef B.jpg';
+import restaurant from '../../../assets/images/restaurant.jpg';
 import { Box, Flex } from '@chakra-ui/react';
 
 const About = () => {

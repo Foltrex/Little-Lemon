@@ -1,7 +1,8 @@
 .testimonials {
     position: relative;
-    height: 440px;
+    height: calc(max-content);
     padding-top: 122px;
+    padding-bottom: 120px;
 }
 
 .title {
@@ -15,6 +16,15 @@
     margin-top: 64px
 }
 
+.testimonialsGrid {
+    display: grid;
+    justify-content: space-between;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: minmax(178px, auto);
+    gap: 24px;
+}
+
+
 .background {
     width: 100vw;
     height: 100%;
@@ -24,4 +34,11 @@
     left: 50%;
     transform: translateX(-50%);
     background-color: rgb(253, 244, 238);
+}
+
+
+@media (max-width: 1120px) {
+    .testimonialsGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }

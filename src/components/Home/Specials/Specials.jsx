@@ -1,11 +1,11 @@
 import React from 'react'
 import styles from './Specials.module.css';
-import Button from '../common/Button/Button';
-import Card from './Card/Card';
-import greekSalad from '../../assets/images/greek salad.jpg';
-import bruchetta from '../../assets/images/bruchetta.svg'
-import lemonDessert from '../../assets/images/lemon dessert.jpg';
+import Button from '../../common/Button/Button';
+import greekSalad from '../../../assets/images/greek salad.jpg';
+import bruchetta from '../../../assets/images/bruchetta.svg'
+import lemonDessert from '../../../assets/images/lemon dessert.jpg';
 import { Flex } from '@chakra-ui/react';
+import Card from './Card/Card';
 
 const Specials = (props) => {
     const specials = [
@@ -21,7 +21,7 @@ const Specials = (props) => {
                     <h1 className='title'>This weeks specials!</h1>
                     <Button text='Online Menu' />
                 </Flex>
-                <Flex justify='space-between' gap={34}>
+                <Flex className={styles.cardContainer} flexWrap='wrap' justify='center' gap={34}>
                     {specials.map(special => (
                         <Card
                             key={special.title}

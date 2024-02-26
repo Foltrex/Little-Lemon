@@ -1,7 +1,6 @@
 import React from 'react';
 import styles from './Testimonials.module.css';
 import Review from './Review/Review';
-import { Flex } from '@chakra-ui/react';
 
 const Testimonials = () => {
     const reviews = [
@@ -17,11 +16,11 @@ const Testimonials = () => {
             <h1 className={styles.title}>
                 Testimonials
             </h1>
-            <Flex justifyContent='space-between' gap={24}>
+            <div className={styles.testimonialsGrid}>
                 {reviews.map(review => (
                     <Review key={review.nickname} name={review.name} nickname={review.nickname} avatar={review.avatar} stars={review.stars} text={review.text} />
                 ))}
-            </Flex>
+            </div>
         </section>
     );
 }

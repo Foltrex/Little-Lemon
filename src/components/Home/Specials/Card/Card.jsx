@@ -1,12 +1,12 @@
 import React from 'react';
 import styles from './Card.module.css';
-import { ReactComponent as BikeSvg } from '../../../assets/icons/Bike.svg';
-import { Flex, Image } from '@chakra-ui/react';
+import { ReactComponent as BikeSvg } from '../../../../assets/icons/Bike.svg';
+import { Box, Flex, Image } from '@chakra-ui/react';
 
 const Card = ({ title, image, price, text }) => {
     return (
         <>
-            <div className={styles.card}>
+            <Box flexGrow={1} as='div' className={styles.card} maxWidth={264}>
                 <Image
                     src={image}
                     alt={title}
@@ -27,7 +27,7 @@ const Card = ({ title, image, price, text }) => {
                         <BikeSvg />
                     </button>
                 </div>
-            </div>
+            </Box>
         </>
     )
 }

@@ -43,3 +43,22 @@
     object-fit: cover;
     object-position: center;
 }
+
+@media (max-width: 890px) {
+    .restaurant {
+        display: none;
+    }
+
+    .restaurantChef {
+        position: relative;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
+@media (max-width: 890px) {
+    .restaurantChef {
+        display: none;
+    }
+}
