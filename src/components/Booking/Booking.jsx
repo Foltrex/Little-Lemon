@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
+import BookingForm from './BookingForm/BookingForm';
 
-const Booking = () => {
+const Booking = (props) => {
     return (
-        <div>
-            Hello from booking
-        </div>
+        <>
+            <BookingForm {...props} />
+        </>
     );
 }
 
