@@ -9,15 +9,16 @@ const BookingForm = ({ state, dispatch }) => {
     const { availableTimes } = state;
 
     const now = new Date();
-    const formattedDate = now.toISOString().split('T')[0];
+    const formattedDate = now.toLocaleDateString("en-CA");
     const formik = useFormik({
         initialValues: {
             date: formattedDate,
             guests: 1,
-            time: availableTimes[0]
+            time: availableTimes[0],
+            occasion: occasions[0]
         },
         validationSchema: yup.object({
-            date: yup.date().required().min(now),
+            date: yup.date().required().min(formattedDate),
             time: yup.string().required().matches(/\d{1,2}:\d{2}/),
             guests: yup.number().required().min(1).max(10),
             occasion: yup.string().oneOf(occasions)
@@ -27,12 +28,16 @@ const BookingForm = ({ state, dispatch }) => {
         }
     });
 
+    // useEffect(() => {
+    //     console.log(formik.errors)
+    // }, [formik.errors]);
+
     const onDateChange = (e) => {
         formik.handleChange(e);
         const chosenDate = e.target.value;
         const currentDateString = formattedDate;
         const tomorrow = dateFns.addDays(now, 1);
-        const formattedDateTomorrow = tomorrow.toISOString().split('T')[0];
+        const formattedDateTomorrow = tomorrow.toLocaleDateString("en-CA");
 
         if (chosenDate === currentDateString) {
             dispatch({ type: 'today' });

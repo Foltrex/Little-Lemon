@@ -2,31 +2,30 @@ import React, { useReducer, useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Booking from './Booking/Booking';
 import Home from './Home/Home';
+import { fetchAPI } from '../utils/api';
 
+const updateTimes = (state, action) => {
+    switch (action.type) {
+        case "UPDATE": {
+            return {
+                ...state,
+                availableTimes: fetchAPI(action.date)
+            };
+        }
+        default: {
+            return state;
+        }
+    };
+}
+
+const initializeTimes = () => {
+    return {
+        availableTimes: fetchAPI(new Date())
+    };
+}
 
 const Main = () => {
-    const updateTimes = (state, action) => {
-        switch (action.type) {
-            case 'today': {
-                return { availableTimes: ['20:00','21:00'] }
-            }
-            case 'tomorrow': {
-                return { availableTimes: [
-                    '9:00', '10:00', '12:00', '16:00', '19:00', 
-                    '20:00', '21:00'
-                ] }
-            }
-            default: {
-                return { availableTimes: [
-                    '9:00', '10:00', '11:00', '12:00', '13:00', '14:00',
-                    '15:00', '16:00', '17:00', '18:00', '19:00', '20:00',
-                    '21:00'
-                ] }
-            }
-        }
-    }
-
-    const [state, dispatch] = useReducer(updateTimes, { availableTimes: ['20:00','21:00'] });
+    const [state, dispatch] = useReducer(updateTimes, initializeTimes());
 
     return (
         <>
