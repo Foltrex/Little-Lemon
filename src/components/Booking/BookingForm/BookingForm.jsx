@@ -35,14 +35,13 @@ const BookingForm = ({ state, dispatch }) => {
         }
     });
 
-    // useEffect(() => {
-    //     console.log(formik.errors)
-    // }, [formik.errors]);
+    useEffect(() => {
+        console.log(formik.errors)
+    }, [formik.errors]);
 
-    const onDateChange = (e) => {
-        formik.handleChange(e);
-        dispatch({ type: 'UPDATE' })
-    }
+    useEffect(() => {
+        dispatch({ type: "UPDATE_TIMES", date: new Date(formik.values.date) });
+    }, [formik.values.date]);
 
     return (
         <>
@@ -52,9 +51,10 @@ const BookingForm = ({ state, dispatch }) => {
                     id="date"
                     name="date"
                     type="date"
-                    onChange={onDateChange}
+                    onChange={formik.handleChange}
                     value={formik.values.date}
                 />
+                {formik.errors.date && <p className={styles.error}>{formik.errors.date}</p>}
 
                 <label htmlFor="time">Choose time</label>
                 <select
@@ -67,6 +67,7 @@ const BookingForm = ({ state, dispatch }) => {
                         <option key={timeOption}>{timeOption}</option>
                     ))}
                 </select>
+                {formik.errors.time && <p className={styles.error}>{formik.errors.time}</p>}
 
                 <label htmlFor="guests">Number of guests</label>
                 <input
@@ -78,6 +79,7 @@ const BookingForm = ({ state, dispatch }) => {
                     value={formik.values.guests}
                     onChange={formik.handleChange}
                 />
+                {formik.errors.guests && <p className={styles.error}>{formik.errors.guests}</p>}
 
                 <label htmlFor="occasion">Occasion</label>
                 <select
@@ -90,8 +92,9 @@ const BookingForm = ({ state, dispatch }) => {
                         <option key={occasion}>{occasion}</option>
                     ))}
                 </select>
+                {formik.errors.occasion && <p className={styles.error}>{formik.errors.occasion}</p>}
 
-                <input type="submit" value="Make Your reservation" />
+                <input disabled={!formik.isValid} type="submit" value="Make Your reservation" />
             </form>
         </>
     );

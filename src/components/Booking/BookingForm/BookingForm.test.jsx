@@ -9,7 +9,7 @@ describe('Booking Form', () => {
     test('Label for date must be presented', () => {
         render(
             <MemoryRouter>
-                <BookingForm state={{ availableTimes: [] }} />
+                <BookingForm state={{ availableTimes: [] }} dispatch={jest.fn()} />
             </MemoryRouter>
         );
         const dateLabel = screen.getByText('Choose date');
@@ -19,7 +19,7 @@ describe('Booking Form', () => {
     test('Label for guest number must be presented', () => {
         render(
             <MemoryRouter>
-                <BookingForm state={{ availableTimes: [] }} />
+                <BookingForm state={{ availableTimes: [] }} dispatch={jest.fn()} />
             </MemoryRouter>
         );
         const dateLabel = screen.getByText('Number of guests');
