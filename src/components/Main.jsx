@@ -3,8 +3,9 @@ import { Route, Routes } from 'react-router-dom';
 import Booking from './Booking/Booking';
 import Home from './Home/Home';
 import { fetchAPI } from '../utils/api';
+import ConfirmedBooking from './ConfirmedBooking/ConfirmedBooking';
 
-const updateTimes = (state, action) => {
+export const updateTimes = (state, action) => {
     switch (action.type) {
         case "UPDATE": {
             return {
@@ -18,7 +19,7 @@ const updateTimes = (state, action) => {
     };
 }
 
-const initializeTimes = () => {
+export const initializeTimes = () => {
     return {
         availableTimes: fetchAPI(new Date())
     };
@@ -33,6 +34,7 @@ const Main = () => {
                 <Routes>
                     <Route path='/' element={<Home />} />
                     <Route path='/booking' element={<Booking state={state} dispatch={dispatch} />} />
+                    <Route path='/confirmation' element={<ConfirmedBooking />} />
                 </Routes>
             </main>
         </>

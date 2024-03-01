@@ -3,8 +3,12 @@ import React, { useEffect } from 'react';
 import styles from './BookingForm.module.css';
 import * as yup from 'yup';
 import * as dateFns from 'date-fns'
+import { useNavigate } from 'react-router-dom';
+import { submitAPI } from '../../../utils/api';
 
 const BookingForm = ({ state, dispatch }) => {
+    const navigate = useNavigate();
+
     const occasions = ['Birthday', 'Anniversary'];
     const { availableTimes } = state;
 
@@ -24,7 +28,10 @@ const BookingForm = ({ state, dispatch }) => {
             occasion: yup.string().oneOf(occasions)
         }),
         onSubmit: values => {
-            alert(JSON.stringify(values, null, 2));
+            const response = submitAPI(values);
+            if (response) {
+                navigate('/confirmation');
+            }
         }
     });
 
@@ -34,18 +41,7 @@ const BookingForm = ({ state, dispatch }) => {
 
     const onDateChange = (e) => {
         formik.handleChange(e);
-        const chosenDate = e.target.value;
-        const currentDateString = formattedDate;
-        const tomorrow = dateFns.addDays(now, 1);
-        const formattedDateTomorrow = tomorrow.toLocaleDateString("en-CA");
-
-        if (chosenDate === currentDateString) {
-            dispatch({ type: 'today' });
-        } else if (chosenDate === formattedDateTomorrow) {
-            dispatch({ type: 'tomorrow' });
-        } else {
-            dispatch({ type: 'next days' });
-        }
+        dispatch({ type: 'UPDATE' })
     }
 
     return (
