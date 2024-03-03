@@ -3,12 +3,8 @@ import React, { useEffect } from 'react';
 import styles from './BookingForm.module.css';
 import * as yup from 'yup';
 import * as dateFns from 'date-fns'
-import { useNavigate } from 'react-router-dom';
-import { submitAPI } from '../../../utils/api';
 
-const BookingForm = ({ state, dispatch }) => {
-    const navigate = useNavigate();
-
+const BookingForm = ({ onSubmit, state, dispatch }) => {
     const occasions = ['Birthday', 'Anniversary'];
     const { availableTimes } = state;
 
@@ -27,12 +23,7 @@ const BookingForm = ({ state, dispatch }) => {
             guests: yup.number().required().min(1).max(10),
             occasion: yup.string().oneOf(occasions)
         }),
-        onSubmit: values => {
-            const response = submitAPI(values);
-            if (response) {
-                navigate('/confirmation');
-            }
-        }
+        onSubmit: (values) => onSubmit(values)
     });
 
     useEffect(() => {
