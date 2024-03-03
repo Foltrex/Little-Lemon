@@ -36,7 +36,11 @@ const BookingForm = ({ onSubmit, state, dispatch }) => {
 
     return (
         <>
-            <form onSubmit={formik.handleSubmit} className={styles.bookingForm}>
+            <form
+                onSubmit={formik.handleSubmit}
+                className={styles.bookingForm}
+                aria-label='Reserve a table'
+            >
                 <label htmlFor="date">Choose date</label>
                 <input
                     id="date"
@@ -44,6 +48,7 @@ const BookingForm = ({ onSubmit, state, dispatch }) => {
                     type="date"
                     onChange={formik.handleChange}
                     value={formik.values.date}
+                    aria-required='true'
                 />
                 {formik.errors.date && <p className={styles.error}>{formik.errors.date}</p>}
 
@@ -53,6 +58,7 @@ const BookingForm = ({ onSubmit, state, dispatch }) => {
                     name="time"
                     onChange={formik.handleChange}
                     value={formik.values.time}
+                    aria-required='true'
                 >
                     {availableTimes.map(timeOption => (
                         <option key={timeOption}>{timeOption}</option>
@@ -69,6 +75,7 @@ const BookingForm = ({ onSubmit, state, dispatch }) => {
                     max="10"
                     value={formik.values.guests}
                     onChange={formik.handleChange}
+                    aria-required='true'
                 />
                 {formik.errors.guests && <p className={styles.error}>{formik.errors.guests}</p>}
 
@@ -78,6 +85,7 @@ const BookingForm = ({ onSubmit, state, dispatch }) => {
                     name="occasion"
                     value={formik.values.occasion}
                     onChange={formik.handleChange}
+                    aria-required='true'
                 >
                     {occasions.map(occasion => (
                         <option key={occasion}>{occasion}</option>
