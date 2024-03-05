@@ -19,7 +19,11 @@ const Specials = (props) => {
             <section className={styles.specials}>
                 <Flex justifyContent='space-between'>
                     <h1 className='title'>This weeks specials!</h1>
-                    <Button text='Online Menu' onClick={() => console.log('Online Menu')} />
+                    <Button
+                        text='Online Menu'
+                        onClick={() => console.log('Online Menu')}
+                        ariaLabel='Navigate to Online Menu'
+                    />
                 </Flex>
                 <Flex className={styles.cardContainer} flexWrap='wrap' justify='center' gap={34}>
                     {specials.map(special => (

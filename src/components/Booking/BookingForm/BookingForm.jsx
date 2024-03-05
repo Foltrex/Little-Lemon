@@ -101,7 +101,13 @@ const BookingForm = ({ onSubmit, state, dispatch }) => {
                 </select>
                 {formik.errors.occasion && <p className={styles.error}>{formik.errors.occasion}</p>}
 
-                <Button disabled={!formik.isValid} text='Make Your reservation' onClick={() => formik.submitForm()} style={formik.isValid ? activeButtonStyle : disabledButtonStyle} />
+                <Button
+                    disabled={!formik.isValid}
+                    text='Make Your reservation'
+                    onClick={() => formik.submitForm()}
+                    style={formik.isValid ? activeButtonStyle : disabledButtonStyle}
+                    ariaLabel='Confirm your reservation details'
+                />
             </form>
         </>
     );

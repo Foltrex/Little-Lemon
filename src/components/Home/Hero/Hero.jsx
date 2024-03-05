@@ -19,7 +19,11 @@ const Hero = (props) => {
           We are family owned Mediterranean restaurant, focused on traditional recipes served with a modern twist.
         </p>
 
-        <Button text='Reserve a Table' onClick={() => navigate('/booking')} />
+        <Button
+          text='Reserve a Table'
+          onClick={() => navigate('/booking')}
+          ariaLabel='Navigate to reservation page'
+        />
       </section>
     </>
   )

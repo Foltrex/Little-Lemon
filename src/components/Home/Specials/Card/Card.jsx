@@ -18,7 +18,7 @@ const Card = ({ title, image, price, text }) => {
                     <p className="paragraph-text">{text}</p>
                 </div>
                 <footer className={styles.footer}>
-                    <button className={styles.deliveryButton}>
+                    <button className={styles.deliveryButton} aria-label='Order a delivery'>
                         Order a delivery
                         <BikeSvg />
                     </button>

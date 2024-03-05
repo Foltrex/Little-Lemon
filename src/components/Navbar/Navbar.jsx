@@ -26,14 +26,22 @@ const Navbar = (props) => {
       </Link>
 
       {!isLargerThan900 &&
-        <button className={styles.hamburgerButton} onClick={() => setDisplaySideBar(true)}>
+        <button
+          className={styles.hamburgerButton}
+          onClick={() => setDisplaySideBar(true)}
+          aria-label='Open hamburger menu'
+        >
           <HamburgerMenuIcon />
         </button>
       }
 
       {(isLargerThan900 || displaySideBar) && (
         <>
-          <button className={styles.close} onClick={() => setDisplaySideBar(false)}>
+          <button
+            className={styles.close}
+            onClick={() => setDisplaySideBar(false)}
+            aria-label='Close hamburger menu'
+          >
             <img src={Close} alt="Close button" />
           </button>
             <ul>
