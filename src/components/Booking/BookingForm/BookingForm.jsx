@@ -3,6 +3,7 @@ import React, { useEffect } from 'react';
 import styles from './BookingForm.module.css';
 import * as yup from 'yup';
 import * as dateFns from 'date-fns'
+import Button from '../../common/Button/Button';
 
 const BookingForm = ({ onSubmit, state, dispatch }) => {
     const occasions = ['Birthday', 'Anniversary'];
@@ -27,12 +28,19 @@ const BookingForm = ({ onSubmit, state, dispatch }) => {
     });
 
     useEffect(() => {
-        console.log(formik.errors)
-    }, [formik.errors]);
-
-    useEffect(() => {
         dispatch({ type: "UPDATE_TIMES", date: new Date(formik.values.date) });
     }, [formik.values.date]);
+
+    const activeButtonStyle = {
+        width: 'calc(100% + 32px)',
+        height: '56px',
+        borderRadius: '16px'
+    };
+
+    const disabledButtonStyle = {
+        ...activeButtonStyle,
+        opacity: '50%'
+    };
 
     return (
         <>
@@ -41,7 +49,7 @@ const BookingForm = ({ onSubmit, state, dispatch }) => {
                 className={styles.bookingForm}
                 aria-label='Reserve a table'
             >
-                <label htmlFor="date">Choose date</label>
+                <label htmlFor="date">Choose date<sup>*</sup></label>
                 <input
                     id="date"
                     name="date"
@@ -52,7 +60,7 @@ const BookingForm = ({ onSubmit, state, dispatch }) => {
                 />
                 {formik.errors.date && <p className={styles.error}>{formik.errors.date}</p>}
 
-                <label htmlFor="time">Choose time</label>
+                <label htmlFor="time">Choose time<sup>*</sup></label>
                 <select
                     id="time"
                     name="time"
@@ -66,7 +74,7 @@ const BookingForm = ({ onSubmit, state, dispatch }) => {
                 </select>
                 {formik.errors.time && <p className={styles.error}>{formik.errors.time}</p>}
 
-                <label htmlFor="guests">Number of guests</label>
+                <label htmlFor="guests">Number of guests<sup>*</sup></label>
                 <input
                     id="guests"
                     name="guests"
@@ -79,7 +87,7 @@ const BookingForm = ({ onSubmit, state, dispatch }) => {
                 />
                 {formik.errors.guests && <p className={styles.error}>{formik.errors.guests}</p>}
 
-                <label htmlFor="occasion">Occasion</label>
+                <label htmlFor="occasion">Occasion<sup>*</sup></label>
                 <select
                     id="occasion"
                     name="occasion"
@@ -93,7 +101,7 @@ const BookingForm = ({ onSubmit, state, dispatch }) => {
                 </select>
                 {formik.errors.occasion && <p className={styles.error}>{formik.errors.occasion}</p>}
 
-                <input disabled={!formik.isValid} type="submit" value="Make Your reservation" />
+                <Button disabled={!formik.isValid} text='Make Your reservation' onClick={() => formik.submitForm()} style={formik.isValid ? activeButtonStyle : disabledButtonStyle} />
             </form>
         </>
     );

@@ -1,10 +1,12 @@
 import React from 'react';
 import styles from './Footer.module.css';
 import logo from '../../assets/images/Logo.png';
-import { Grid, GridItem } from '@chakra-ui/react';
+import { Grid, GridItem, useMediaQuery } from '@chakra-ui/react';
 import LinksStack from './LinksStack/LinksStack';
 
 const Footer = () => {
+    const [isLargerThan700] = useMediaQuery('(min-width: 700px)')
+
     const linksColumns = [
         {
             title: 'Doormat Navigation',
@@ -26,10 +28,28 @@ const Footer = () => {
             <div className={styles.bottomNavigation}>
                 <Grid
                     as='div'
-                    templateAreas={`"logo title-1 title-2 title-3"
-                                    "logo column-1 column-2 column-3"`}
-                    templateRows='48px 168px'
-                    templateColumns='162px repeat(3, 1fr)'
+                    templateAreas={
+                        isLargerThan700
+                            ? `"logo title-1 title-2 title-3"
+                               "logo column-1 column-2 column-3"`
+                            : `"logo"
+                               "title-1"
+                               "column-1"
+                               "title-2"
+                               "column-2"
+                               "title-3"
+                               "column-3"`
+                    }
+                    templateRows={
+                        isLargerThan700
+                            ? '48px 168px'
+                            : '200px repeat(6, auto)'
+                    }
+                    templateColumns={
+                        isLargerThan700
+                            ? '162px repeat(3, 1fr)'
+                            : '1fr'
+                    }
                     justifyContent='space-between'
                     columnGap={21}
                     rowGap={24}

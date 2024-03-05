@@ -2,8 +2,11 @@ import React from 'react';
 import styles from './Hero.module.css';
 import Button from '../../common/Button/Button';
 import restauranFood from '../../../assets/images/restauranfood.jpg';
+import { useNavigate } from 'react-router-dom';
 
 const Hero = (props) => {
+  const navigate = useNavigate();
+
   return (
     <>
       <section className={styles.hero}>
@@ -16,7 +19,7 @@ const Hero = (props) => {
           We are family owned Mediterranean restaurant, focused on traditional recipes served with a modern twist.
         </p>
 
-        <Button text='Reserve a Table' />
+        <Button text='Reserve a Table' onClick={() => navigate('/booking')} />
       </section>
     </>
   )
