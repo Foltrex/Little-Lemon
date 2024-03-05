@@ -15,6 +15,7 @@ const Booking = (props) => {
 
     return (
         <>
+            <h1 className='title'>Reserve a table</h1>
             <BookingForm onSubmit={onSubmit} {...props} />
         </>
     );

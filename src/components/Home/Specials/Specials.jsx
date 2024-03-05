@@ -2,7 +2,7 @@ import React from 'react'
 import styles from './Specials.module.css';
 import Button from '../../common/Button/Button';
 import greekSalad from '../../../assets/images/greek salad.jpg';
-import bruchetta from '../../../assets/images/bruchetta.svg'
+import bruchetta from '../../../assets/images/bruchetta.png'
 import lemonDessert from '../../../assets/images/lemon dessert.jpg';
 import { Flex } from '@chakra-ui/react';
 import Card from './Card/Card';
